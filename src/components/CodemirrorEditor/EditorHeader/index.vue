@@ -10,7 +10,7 @@ import {
 import { useStore } from '@/stores'
 import { addPrefix, processClipboardContent } from '@/utils'
 import { copyPlain } from '@/utils/clipboard'
-import { ChevronDownIcon, Moon, PanelLeftClose, PanelLeftOpen, Settings, Sun } from 'lucide-vue-next'
+import { ChevronDownIcon, Copy, Moon, PanelLeftClose, PanelLeftOpen, Settings, Sun } from 'lucide-vue-next'
 
 const emit = defineEmits([`addFormat`, `formatContent`, `startCopy`, `endCopy`])
 
@@ -138,7 +138,7 @@ function copy() {
 </script>
 
 <template>
-  <header class="header-container h-15 flex flex-wrap items-center justify-between px-5 dark:bg-[#191c20]">
+  <header class="header-container h-15 flex flex-wrap items-center justify-between dark:bg-[#191c20] !px-5">
     <!-- 左侧菜单：移动端隐藏 -->
     <div class="space-x-2 hidden sm:flex">
       <Menubar class="menubar">
@@ -193,9 +193,9 @@ function copy() {
       </Button>
 
       <!-- 复制按钮组 -->
-      <div class="space-x-1 bg-background text-background-foreground mx-2 flex items-center border rounded-md">
-        <Button variant="ghost" class="shadow-none" @click="copy">
-          复制
+      <div class="bg-background space-x-1 text-background-foreground mx-2 flex items-center border rounded-md">
+        <Button variant="ghost" size="icon" @click="copy">
+          <Copy class="size-4" />
         </Button>
         <Separator orientation="vertical" class="h-5" />
         <DropdownMenu v-model="copyMode">

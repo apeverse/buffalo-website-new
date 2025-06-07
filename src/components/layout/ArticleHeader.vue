@@ -9,12 +9,12 @@ const { toggleDark, previewWidthChanged } = commonHeaderStore
 </script>
 
 <template>
-  <header class="header-container h-15 flex flex-wrap items-center justify-end px-5 dark:bg-[#191c20]">
+  <header class="header-container h-15 flex flex-wrap items-center justify-end dark:bg-[#191c20] !px-5">
     <!-- 左侧菜单：移动端隐藏 -->
     <!-- <div></div> -->
 
     <!-- 右侧操作区：移动端保留核心按钮 -->
-    <div class="space-x-2 mr-4 flex flex-wrap">
+    <div class="space-x-2 flex flex-wrap">
       <!-- 暗色切换 -->
       <Button variant="outline" size="icon" @click="toggleDark()">
         <Moon v-show="isDark" class="size-4" />
@@ -47,9 +47,9 @@ const { toggleDark, previewWidthChanged } = commonHeaderStore
 </template>
 
 <style lang="less" scoped>
-.menubar {
-  user-select: none;
-}
+// .menubar {
+//   user-select: none;
+// }
 
 kbd {
   display: inline-flex;
