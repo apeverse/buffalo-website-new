@@ -11,7 +11,7 @@ import {
   shiftKey,
   themeMap,
   themeOptions,
-  widthOptions,
+  // widthOptions,
 } from '@/config'
 import {
   addPrefix,
@@ -29,6 +29,7 @@ import { toPng } from 'html-to-image'
 
 import { marked } from 'marked'
 import { v4 as uuid } from 'uuid'
+import { useCommonHeaderStore } from './commonHeader'
 
 /**********************************
  * Post 结构接口
@@ -51,8 +52,12 @@ interface Post {
 
 export const useStore = defineStore(`store`, () => {
   // 是否开启深色模式
-  const isDark = useDark()
-  const toggleDark = useToggle(isDark)
+  // const isDark = useDark()
+  // const toggleDark = useToggle(isDark)
+
+  const commonHeaderStore = useCommonHeaderStore()
+  const { toggleDark, previewWidthChanged } = commonHeaderStore
+  const { isDark, previewWidth } = storeToRefs(commonHeaderStore)
 
   // 是否开启 Mac 代码块
   const isMacCodeBlock = useStorage<boolean>(`isMacCodeBlock`, true)
@@ -94,7 +99,7 @@ export const useStore = defineStore(`store`, () => {
   const legend = useStorage(`legend`, legendOptions[3].value)
 
   // 预览宽度
-  const previewWidth = useStorage(`previewWidth`, widthOptions[0].value)
+  // const previewWidth = useStorage(`previewWidth`, widthOptions[0].value)
 
   const fontSizeNumber = computed(() => Number(fontSize.value.replace(`px`, ``)))
 
@@ -549,9 +554,9 @@ export const useStore = defineStore(`store`, () => {
     codeBlockTheme.value = newTheme
   })
 
-  const previewWidthChanged = withAfterRefresh((newWidth: string) => {
-    previewWidth.value = newWidth
-  })
+  // const previewWidthChanged = withAfterRefresh((newWidth: string) => {
+  //   previewWidth.value = newWidth
+  // })
 
   const legendChanged = withAfterRefresh((newVal) => {
     legend.value = newVal

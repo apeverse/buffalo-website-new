@@ -1,0 +1,32 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "软件的本质是什么？功能接口+语言编排",
+      "description": "在编程语言的海洋中，如何选择合适的语言？以及 Rust 的独特之处。",
+      "date": "2024-03-19",
+      "slug": "markdown-syntax-guide"
+    },
+    {
+      "id": 2,
+      "title": "编程语言的选择：从图灵机到 Rust",
+      "description": "探索编辑器的图片上传、主题切换等高级功能",
+      "date": "2024-03-18",
+      "slug": "editor-advanced-features"
+    },
+    {
+      "id": 3,
+      "title": "从零开始掌握现代系统编程语言，首选 Rust",
+      "description": "Rust 是一种现代的系统编程语言，以其安全性、并发性和性能而闻名。如何从零开始学习这门语言？",
+      "date": "2024-05-19",
+      "slug": "hello-world"
+    },
+    {
+      "id": 4,
+      "title": "如何使用 Markdown 编辑器",
+      "description": "详细介绍 Doocs Markdown 编辑器的基本功能和使用方法",
+      "date": "2024-03-20",
+      "slug": "how-to-use-markdown-editor"
+    }
+  ]
+}

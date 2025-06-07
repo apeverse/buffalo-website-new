@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import CodemirrorEditor from '@/views/CodemirrorEditor.vue'
 </script>
 
 <template>
-  <CodemirrorEditor />
+  <div class="app-container">
+    <main class="main-content">
+      <router-view />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <style lang="less">
@@ -15,10 +19,18 @@ body,
   margin: 0;
   padding: 0;
 }
-
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-content {
+  flex: 1 0 auto;
+}
 // 抵消下拉菜单开启时带来的样式
 body {
   pointer-events: initial !important;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

@@ -1,0 +1,147 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "区块链技术",
+      "children": [
+        {
+          "id": 11,
+          "name": "基础概念",
+          "articles": [
+            { "id": 1, "title": "区块链的本质是什么？", "slug": "blockchain-basics" },
+            { "id": 2, "title": "共识机制详解", "slug": "consensus-mechanism" }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "智能合约",
+          "articles": [
+            { "id": 3, "title": "Solidity 入门指南", "slug": "solidity-guide" },
+            { "id": 4, "title": "智能合约安全实践", "slug": "smart-contract-security" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "AI 技术",
+      "children": [
+        {
+          "id": 21,
+          "name": "机器学习",
+          "articles": [
+            { "id": 5, "title": "机器学习基础", "slug": "ml-basics" },
+            { "id": 6, "title": "深度学习入门", "slug": "deep-learning-intro" }
+          ]
+        },
+        {
+          "id": 22,
+          "name": "自然语言处理",
+          "articles": [
+            { "id": 7, "title": "NLP 技术概览", "slug": "nlp-overview" },
+            { "id": 8, "title": "Transformer 模型详解", "slug": "transformer-model" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "编程语言",
+      "children": [
+        {
+          "id": 31,
+          "name": "Rust",
+          "articles": [
+            { "id": 9, "title": "Rust 入门指南", "slug": "rust-intro" },
+            { "id": 10, "title": "Rust 所有权系统详解", "slug": "rust-ownership" },
+            { "id": 11, "title": "Rust 并发编程实践", "slug": "rust-concurrency" }
+          ]
+        },
+        {
+          "id": 32,
+          "name": "Python",
+          "articles": [
+            { "id": 12, "title": "Python 基础教程", "slug": "python-basics" },
+            { "id": 13, "title": "Python 数据分析入门", "slug": "python-data-analysis" },
+            { "id": 14, "title": "Python Web 开发实战", "slug": "python-web-dev" },
+            { "id": 15, "title": "Python 机器学习实践", "slug": "python-ml" }
+          ]
+        },
+        {
+          "id": 33,
+          "name": "WebAssembly",
+          "articles": [
+            { "id": 16, "title": "WebAssembly 入门", "slug": "wasm-intro" },
+            { "id": 17, "title": "Rust 与 WebAssembly", "slug": "rust-wasm" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "发明创新",
+      "children": [
+        {
+          "id": 41,
+          "name": "技术创新",
+          "articles": [
+            { "id": 18, "title": "区块链技术创新与应用", "slug": "blockchain-innovation" },
+            { "id": 19, "title": "AI 驱动的软件开发新范式", "slug": "ai-driven-dev" },
+            { "id": 20, "title": "Web3 技术发展趋势", "slug": "web3-trends" }
+          ]
+        },
+        {
+          "id": 42,
+          "name": "产品创新",
+          "articles": [
+            { "id": 21, "title": "智能合约产品设计实践", "slug": "smart-contract-design" },
+            { "id": 22, "title": "去中心化应用开发指南", "slug": "dapp-dev-guide" },
+            { "id": 23, "title": "AI 产品创新方法论", "slug": "ai-product-innovation" }
+          ]
+        },
+        {
+          "id": 43,
+          "name": "创新思维",
+          "articles": [
+            { "id": 24, "title": "技术创新的思维模式", "slug": "tech-innovation-mindset" },
+            { "id": 25, "title": "从 0 到 1 的创新实践", "slug": "zero-to-one-innovation" },
+            { "id": 26, "title": "技术创业方法论", "slug": "tech-startup-methodology" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "密码学应用",
+      "children": [
+        {
+          "id": 51,
+          "name": "基础密码学",
+          "articles": [
+            { "id": 27, "title": "密码学基础概念", "slug": "crypto-basics" },
+            { "id": 28, "title": "对称加密与非对称加密", "slug": "symmetric-asymmetric-crypto" },
+            { "id": 29, "title": "哈希函数与数字签名", "slug": "hash-digital-signature" }
+          ]
+        },
+        {
+          "id": 52,
+          "name": "区块链密码学",
+          "articles": [
+            { "id": 30, "title": "零知识证明技术", "slug": "zero-knowledge-proof" },
+            { "id": 31, "title": "同态加密实践", "slug": "homomorphic-encryption" },
+            { "id": 32, "title": "多方安全计算", "slug": "secure-multi-party-computation" }
+          ]
+        },
+        {
+          "id": 53,
+          "name": "密码学应用",
+          "articles": [
+            { "id": 33, "title": "密码学在隐私保护中的应用", "slug": "crypto-privacy" },
+            { "id": 34, "title": "密码学在身份认证中的应用", "slug": "crypto-authentication" },
+            { "id": 35, "title": "密码学在数据安全中的应用", "slug": "crypto-data-security" }
+          ]
+        }
+      ]
+    }
+  ]
+}

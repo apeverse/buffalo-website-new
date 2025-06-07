@@ -733,7 +733,7 @@ const isOpenHeadingSlider = ref(false)
         </ResizablePanelGroup>
       </div>
       <footer
-        class="h-[30px] flex select-none items-center justify-end px-4 text-[12px]"
+        class="h-[30px] flex select-none items-center justify-center px-4 text-[12px]"
       >
         字数 {{ readingTime?.words }}， 阅读大约需
         {{ Math.ceil(readingTime?.minutes ?? 0) }} 分钟
