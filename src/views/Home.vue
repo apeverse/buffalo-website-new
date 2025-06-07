@@ -33,9 +33,9 @@ const features = [
 </script>
 
 <template>
-  <div id="home-page" class="bg-background h-screen overflow-y-auto">
+  <div id="home-page" class="bg-background">
     <!-- 上部分：欢迎区域 -->
-    <section class="section bg-base-200 pt-24">
+    <section class="section bg-gray-50 pt-24 dark:bg-[unset]">
       <div class="mx-auto max-w-full px-4 py-12 md:max-w-7xl lg:px-8 sm:px-6">
         <div class="lg:flex lg:items-center lg:justify-between">
           <div class="lg:w-1/2">
