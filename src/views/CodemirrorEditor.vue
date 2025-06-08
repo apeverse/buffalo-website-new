@@ -127,6 +127,7 @@ const {
 } = useAIPolish()
 
 const preview = ref<HTMLDivElement | null>(null)
+const isOpenHeadingSlider = ref(false)
 
 // 使浏览区与编辑区滚动条建立同步联系
 function leftAndRightScroll() {
@@ -540,11 +541,13 @@ function mdLocalToRemote() {
   }
 }
 
+function handleBackTop() {
+  window.scrollTo({ top: 0, behavior: `smooth` })
+}
+
 onMounted(() => {
   initEditor()
 })
-
-const isOpenHeadingSlider = ref(false)
 </script>
 
 <template>
@@ -699,6 +702,7 @@ const isOpenHeadingSlider = ref(false)
                   target="preview"
                   :right="store.isMobile ? 24 : 20"
                   :bottom="store.isMobile ? 90 : 20"
+                  @click="handleBackTop"
                 />
               </div>
               <div

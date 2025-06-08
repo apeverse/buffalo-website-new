@@ -56,8 +56,8 @@ export const useStore = defineStore(`store`, () => {
   // const toggleDark = useToggle(isDark)
 
   const commonHeaderStore = useCommonHeaderStore()
-  const { toggleDark, previewWidthChanged } = commonHeaderStore
-  const { isDark, previewWidth } = storeToRefs(commonHeaderStore)
+  const { toggleDark, handleResize, previewWidthChanged } = commonHeaderStore
+  const { isDark, isMobile, previewWidth } = storeToRefs(commonHeaderStore)
 
   // 是否开启 Mac 代码块
   const isMacCodeBlock = useStorage<boolean>(`isMacCodeBlock`, true)
@@ -131,11 +131,11 @@ export const useStore = defineStore(`store`, () => {
   const currentPostId = useStorage(addPrefix(`current_post_id`), ``)
 
   // 是否为移动端
-  const isMobile = useStorage(`isMobile`, false)
+  // const isMobile = useStorage(`isMobile`, false)
 
-  function handleResize() {
-    isMobile.value = window.innerWidth <= 768
-  }
+  // function handleResize() {
+  //   isMobile.value = window.innerWidth <= 768
+  // }
 
   onMounted(() => {
     handleResize()

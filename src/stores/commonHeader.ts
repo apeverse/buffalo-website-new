@@ -7,6 +7,12 @@ export const useCommonHeaderStore = defineStore(`commonHeader`, () => {
   const isDark = useDark()
   const toggleDark = useToggle(isDark)
 
+  // 是否为移动端
+  const isMobile = useStorage(`isMobile`, false)
+  function handleResize() {
+    isMobile.value = window.innerWidth <= 768
+  }
+
   // 预览宽度
   const previewWidth = useStorage(`previewWidth`, widthOptions[0].value)
   const previewWidthChanged = (newWidth: string) => {
@@ -14,8 +20,10 @@ export const useCommonHeaderStore = defineStore(`commonHeader`, () => {
   }
 
   return {
-    isDark, // 保持 ref 类型
+    isDark,
     toggleDark,
+    isMobile,
+    handleResize,
     previewWidth,
     previewWidthChanged,
   }

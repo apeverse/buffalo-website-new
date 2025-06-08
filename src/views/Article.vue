@@ -35,6 +35,10 @@ async function loadArticleContent() {
   }
 }
 
+function handleBackTop() {
+  window.scrollTo({ top: 0, behavior: `smooth` })
+}
+
 // 监听路由参数变化
 watch(() => route.query.id, () => {
   loadArticleContent()
@@ -66,8 +70,13 @@ onMounted(async () => {
                 <section id="output" class="w-full" v-html="output" />
               </div>
             </div>
-            <BackTop target="preview" />
           </div>
+          <BackTop
+            target="preview"
+            :right="store.isMobile ? 24 : 20"
+            :bottom="store.isMobile ? 90 : 20"
+            @click="handleBackTop"
+          />
           <div
             class="bg-background absolute left-0 top-0 border rounded-2 rounded-lt-none p-2 text-sm shadow"
             @mouseenter="() => isOpenHeadingSlider = true" @mouseleave="() => isOpenHeadingSlider = false"
@@ -112,6 +121,12 @@ onMounted(async () => {
 
 .container-main {
   overflow: hidden;
+}
+
+.preview-wrapper {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
 }
 
 #output-wrapper {
