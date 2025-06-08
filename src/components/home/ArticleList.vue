@@ -27,15 +27,17 @@ async function fetchArticles() {
   }
 }
 
-// 组件挂载时获取数据
-fetchArticles()
-
 function goToArticle(slug: string) {
   router.push({
     path: `/article`,
     query: { id: slug },
   })
 }
+
+onMounted(() => {
+  // 组件挂载时获取数据
+  fetchArticles()
+})
 </script>
 
 <template>

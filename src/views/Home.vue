@@ -85,7 +85,14 @@ const features = [
                 <div class="flex items-center">
                   <div class="flex-shrink-0">
                     <div class="relative h-24 w-24 flex items-center justify-center overflow-hidden border-4 border-blue-100 rounded-full bg-gray-200">
-                      <img src="/assets/images/buffalo-logo.png" alt="Buffalo" class="object-cover h-full w-full">
+                      <img
+                        src="/assets/images/buffalo-logo.png"
+                        alt="Buffalo"
+                        class="object-cover h-full w-full"
+                        loading="lazy"
+                        width="96"
+                        height="96"
+                      >
                     </div>
                   </div>
                   <div class="ml-4">
@@ -93,7 +100,7 @@ const features = [
                       <h4 class="font-bold">
                         水牛
                       </h4>
-                      <a href="https://github.com/" class="hover:text-primary ml-2" target="_blank">
+                      <a href="https://github.com/" class="hover:text-primary ml-2" target="_blank" rel="noopener noreferrer">
                         <Icon icon="mdi:github" />
                       </a>
                     </div>
@@ -148,6 +155,7 @@ const features = [
 
 .bounce-animation {
   animation: bounce 2s infinite;
+  will-change: transform;
 }
 
 @keyframes bounce {

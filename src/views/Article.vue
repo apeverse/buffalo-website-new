@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useCommonStore } from '@/stores/common'
+// import { loadMathJax, renderMathJax } from '@/utils/mathjax'
 import { renderArticle, type title } from '@/utils/renderArticle'
+import { List } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 
 const store = useCommonStore()
@@ -30,6 +32,15 @@ async function loadArticleContent() {
     output.value = result.output
     titles.value = result.titles
     readingTime.value = result.readingTime
+
+    // 加载并渲染 MathJax
+    // await loadMathJax()
+    // nextTick(() => {
+    //   const outputElement = document.getElementById(`output`)
+    //   if (outputElement) {
+    //     renderMathJax(outputElement)
+    //   }
+    // })
   }
   catch (error) {
     console.error(`加载文章失败:`, error)
