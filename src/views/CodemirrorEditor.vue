@@ -21,9 +21,9 @@ import {
 } from '@/config'
 import { useDisplayStore, useStore } from '@/stores'
 import { checkImage, formatDoc, toBase64 } from '@/utils'
+import CodeMirror from '@/utils/codemirrorConfig'
 import { toggleFormat } from '@/utils/editor'
 import fileApi from '@/utils/file'
-import CodeMirror from 'codemirror'
 import { Eye, List, Pen } from 'lucide-vue-next'
 
 const store = useStore()
