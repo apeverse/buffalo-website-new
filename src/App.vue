@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useCommonHeaderStore } from '@/stores/commonHeader'
+import { useCommonStore } from '@/stores/common'
 import { onMounted } from 'vue'
 
-const commonHeaderStore = useCommonHeaderStore()
+const commonStore = useCommonStore()
 
 onMounted(() => {
   // 确保主题模式在应用启动时被正确应用
-  if (commonHeaderStore.isDark) {
+  if (commonStore.isDark) {
     document.documentElement.classList.add(`dark`)
   }
   else {

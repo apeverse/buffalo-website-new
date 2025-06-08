@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { useCommonStore } from '@/stores/common'
 import { renderArticle, type title } from '@/utils/renderArticle'
 import { useRoute } from 'vue-router'
 
-const store = useCommonHeaderStore()
+const store = useCommonStore()
 const route = useRoute()
 const output = ref(``)
 const titles = ref<title[]>([])
@@ -105,6 +106,7 @@ onMounted(async () => {
         字数 {{ readingTime?.words }}， 阅读大约需 {{ Math.ceil(readingTime?.minutes ?? 0) }} 分钟
       </footer>
     </main>
+    <RunLoading />
   </div>
 </template>
 

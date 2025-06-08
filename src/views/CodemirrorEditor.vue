@@ -131,6 +131,9 @@ const isOpenHeadingSlider = ref(false)
 
 // 使浏览区与编辑区滚动条建立同步联系
 function leftAndRightScroll() {
+  if (!editor.value || !preview.value)
+    return
+
   const scrollCB = (text: string) => {
     // AIPolishBtnRef.value?.close()
 
@@ -141,6 +144,8 @@ function leftAndRightScroll() {
     if (text === `preview`) {
       source = preview.value!
       target = document.querySelector<HTMLElement>(`.CodeMirror-scroll`)!
+      if (!target)
+        return
 
       editor.value!.off(`scroll`, editorScrollCB)
       timeout.value = setTimeout(() => {
@@ -149,6 +154,8 @@ function leftAndRightScroll() {
     }
     else {
       source = document.querySelector<HTMLElement>(`.CodeMirror-scroll`)!
+      if (!source)
+        return
       target = preview.value!
 
       target.removeEventListener(`scroll`, previewScrollCB, false)
@@ -172,8 +179,8 @@ function leftAndRightScroll() {
     scrollCB(`preview`)
   }
 
-  preview.value!.addEventListener(`scroll`, previewScrollCB, false)
-  editor.value!.on(`scroll`, editorScrollCB)
+  preview.value.addEventListener(`scroll`, previewScrollCB, false)
+  editor.value.on(`scroll`, editorScrollCB)
 }
 
 // 更新编辑器
@@ -400,6 +407,9 @@ function initEditor() {
     initPolishEvent(editor.value)
     onEditorRefresh()
     mdLocalToRemote()
+
+    // Initialize scroll sync after editor is created
+    leftAndRightScroll()
   })
 
   // 定时，30 秒记录一次

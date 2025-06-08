@@ -2,7 +2,7 @@ import { widthOptions } from '@/config'
 import { useDark, useStorage, useToggle } from '@vueuse/core'
 import { defineStore } from 'pinia'
 
-export const useCommonHeaderStore = defineStore(`commonHeader`, () => {
+export const useCommonStore = defineStore(`common`, () => {
   // 是否开启深色模式
   const isDark = useDark()
   const toggleDark = useToggle(isDark)
@@ -14,7 +14,7 @@ export const useCommonHeaderStore = defineStore(`commonHeader`, () => {
   }
 
   // 预览宽度
-  const previewWidth = useStorage(`previewWidth`, widthOptions[0].value)
+  const previewWidth = useStorage(`previewWidth`, widthOptions[1].value)
   const previewWidthChanged = (newWidth: string) => {
     previewWidth.value = newWidth
   }

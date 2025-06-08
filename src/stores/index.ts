@@ -29,7 +29,7 @@ import { toPng } from 'html-to-image'
 
 import { marked } from 'marked'
 import { v4 as uuid } from 'uuid'
-import { useCommonHeaderStore } from './commonHeader'
+import { useCommonStore } from './common'
 
 /**********************************
  * Post 结构接口
@@ -55,9 +55,9 @@ export const useStore = defineStore(`store`, () => {
   // const isDark = useDark()
   // const toggleDark = useToggle(isDark)
 
-  const commonHeaderStore = useCommonHeaderStore()
-  const { toggleDark, handleResize, previewWidthChanged } = commonHeaderStore
-  const { isDark, isMobile, previewWidth } = storeToRefs(commonHeaderStore)
+  const commonStore = useCommonStore()
+  const { toggleDark, handleResize, previewWidthChanged } = commonStore
+  const { isDark, isMobile, previewWidth } = storeToRefs(commonStore)
 
   // 是否开启 Mac 代码块
   const isMacCodeBlock = useStorage<boolean>(`isMacCodeBlock`, true)
@@ -239,8 +239,11 @@ export const useStore = defineStore(`store`, () => {
    ********************************/
   watch(currentPostId, () => {
     const post = getPostById(currentPostId.value)
-    if (post)
-      toRaw(editor.value!).setValue(post.content)
+    // Fixed bug
+    // if (post)
+    //   toRaw(editor.value!).setValue(post.content)
+    if (post && editor.value)
+      toRaw(editor.value).setValue(post.content)
   })
 
   onMounted(() => {

@@ -14,7 +14,7 @@ onMounted(() => {
       v-if="loading"
       class="loading"
     >
-      <strong>致力于让 Markdown 编辑更简单</strong>
+      <strong>水牛加密空间</strong>
     </div>
   </transition>
 </template>
@@ -35,10 +35,18 @@ onMounted(() => {
   background-color: hsl(var(--background));
 
   &::before {
-    content: url('../assets/images/favicon.png');
-    width: 100px;
-    height: 100px;
+    content: '';
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: transparent;
+    background-image: url('/assets/images/buffalo-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     margin-bottom: 26px;
+    animation: spin 1.5s linear infinite;
   }
 }
 

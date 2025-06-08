@@ -140,42 +140,45 @@ function copy() {
 <template>
   <header class="header-container h-15 flex flex-wrap items-center justify-between dark:bg-[#191c20] !px-5">
     <!-- 左侧菜单：移动端隐藏 -->
-    <div class="space-x-2 hidden sm:flex">
-      <Menubar class="menubar">
-        <FileDropdown />
+    <div class="space-x-3 flex items-center">
+      <BackHome />
+      <div class="space-x-2 hidden sm:flex">
+        <Menubar class="menubar">
+          <FileDropdown />
 
-        <MenubarMenu>
-          <MenubarTrigger> 格式 </MenubarTrigger>
-          <MenubarContent class="w-60" align="start">
-            <MenubarCheckboxItem
-              v-for="{ label, kbd, emitArgs } in formatItems"
-              :key="label"
-              @click="emitArgs[0] === 'addFormat' ? $emit(emitArgs[0], emitArgs[1]) : $emit(emitArgs[0])"
-            >
-              {{ label }}
-              <MenubarShortcut>
-                <kbd v-for="item in kbd" :key="item" class="mx-1 bg-gray-2 dark:bg-stone-9">
-                  {{ item }}
-                </kbd>
-              </MenubarShortcut>
-            </MenubarCheckboxItem>
-            <MenubarSeparator />
-            <MenubarCheckboxItem :checked="isCiteStatus" @click="citeStatusChanged()">
-              微信外链转底部引用
-            </MenubarCheckboxItem>
-            <MenubarSeparator />
-            <MenubarCheckboxItem
-              :checked="isCountStatus"
-              @click="countStatusChanged()"
-            >
-              统计字数和阅读时间
-            </MenubarCheckboxItem>
-          </MenubarContent>
-        </MenubarMenu>
-        <EditDropdown />
-        <StyleDropdown />
+          <MenubarMenu>
+            <MenubarTrigger> 格式 </MenubarTrigger>
+            <MenubarContent class="w-60" align="start">
+              <MenubarCheckboxItem
+                v-for="{ label, kbd, emitArgs } in formatItems"
+                :key="label"
+                @click="emitArgs[0] === 'addFormat' ? $emit(emitArgs[0], emitArgs[1]) : $emit(emitArgs[0])"
+              >
+                {{ label }}
+                <MenubarShortcut>
+                  <kbd v-for="item in kbd" :key="item" class="mx-1 bg-gray-2 dark:bg-stone-9">
+                    {{ item }}
+                  </kbd>
+                </MenubarShortcut>
+              </MenubarCheckboxItem>
+              <MenubarSeparator />
+              <MenubarCheckboxItem :checked="isCiteStatus" @click="citeStatusChanged()">
+                微信外链转底部引用
+              </MenubarCheckboxItem>
+              <MenubarSeparator />
+              <MenubarCheckboxItem
+                :checked="isCountStatus"
+                @click="countStatusChanged()"
+              >
+                统计字数和阅读时间
+              </MenubarCheckboxItem>
+            </MenubarContent>
+          </MenubarMenu>
+          <EditDropdown />
+          <StyleDropdown />
         <!-- <HelpDropdown /> -->
-      </Menubar>
+        </Menubar>
+      </div>
     </div>
 
     <!-- 右侧操作区：移动端保留核心按钮 -->
@@ -193,7 +196,7 @@ function copy() {
       </Button>
 
       <!-- 复制按钮组 -->
-      <div class="bg-background space-x-1 text-background-foreground mx-2 flex items-center border rounded-md">
+      <div class="space-x-1 bg-background text-background-foreground mx-2 flex items-center border rounded-md">
         <Button variant="ghost" size="icon" @click="copy">
           <Copy class="size-4" />
         </Button>

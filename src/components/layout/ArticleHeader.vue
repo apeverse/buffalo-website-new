@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import { useCommonHeaderStore } from '@/stores/commonHeader'
+import { useCommonStore } from '@/stores/common'
 import { Monitor, Moon, Smartphone, Sun } from 'lucide-vue-next'
 
-const commonHeaderStore = useCommonHeaderStore()
+const commonStore = useCommonStore()
 
-const { isDark, previewWidth } = storeToRefs(commonHeaderStore)
-const { toggleDark, previewWidthChanged } = commonHeaderStore
+const { isDark, previewWidth } = storeToRefs(commonStore)
+const { toggleDark, previewWidthChanged } = commonStore
 </script>
 
 <template>
-  <header class="header-container h-15 flex flex-wrap items-center justify-end dark:bg-[#191c20] !px-5">
+  <header class="header-container h-15 flex flex-wrap items-center justify-between dark:bg-[#191c20] !px-5">
     <!-- 左侧菜单：移动端隐藏 -->
     <!-- <div></div> -->
 
+    <BackHome />
     <!-- 右侧操作区：移动端保留核心按钮 -->
     <div class="space-x-2 flex flex-wrap">
       <!-- 暗色切换 -->
