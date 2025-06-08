@@ -66,9 +66,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        chunkFileNames: `static/js/md-[name]-[hash].js`,
-        entryFileNames: `static/js/md-[name]-[hash].js`,
-        assetFileNames: `static/[ext]/md-[name]-[hash].[ext]`,
+        chunkFileNames: `static/js/buffalo-crypto-space-[name]-[hash].js`,
+        entryFileNames: `static/js/buffalo-crypto-space-[name]-[hash].js`,
+        assetFileNames: `static/[ext]/buffalo-crypto-space-[name]-[hash].[ext]`,
       },
     },
   },
