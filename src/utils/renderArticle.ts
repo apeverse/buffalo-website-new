@@ -12,13 +12,13 @@ export interface title {
 }
 
 // 文本字体
-const theme = themeOptions[0].value
+const theme = themeOptions[2].value
 // 文本字体
 const fontFamily = fontFamilyOptions[0].value
 // 文本大小
 const fontSize = fontSizeOptions[2].value
 // 主色
-const primaryColor = colorOptions[0].value
+const primaryColor = colorOptions[1].value
 
 // 图注格式
 const legend = legendOptions[3].value
