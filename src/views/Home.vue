@@ -3,10 +3,7 @@ import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
-function goToEditor() {
-  router.push(`/editor`)
-}
+const isStarting = ref(false)
 
 const features = [
   {
@@ -30,6 +27,17 @@ const features = [
     icon: `mdi:cloud-sync-outline`,
   },
 ]
+
+function goToEditor() {
+  if (isStarting.value)
+    return
+  isStarting.value = true
+  router.push(`/editor`)
+}
+
+onBeforeUnmount(() => {
+  isStarting.value = false
+})
 </script>
 
 <template>
@@ -46,20 +54,32 @@ const features = [
               从基础到高级，掌握（前沿技术开发）核心技能
             </p>
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" class="gradient-button text-base" @click="goToEditor">
-                开始编辑
-                <Icon icon="mdi:arrow-right" class="ml-2" />
+              <Button size="lg" class="min-w-9.6rem text-base" @click="goToEditor">
+                <span v-if="isStarting" class="starting">启动中</span>
+                <span v-else class="flex items-center">
+                  开始编辑
+                  <Icon icon="mdi:arrow-right" class="ml-2" />
+                </span>
               </Button>
-              <a href="#articles" class="text-primary inline-block">
-                <Button variant="outline" size="lg" class="text-base">
+              <a href="#articles" class="group text-primary">
+                <Button variant="outline" size="lg" class="w-full text-base sm:w-auto">
                   文章列表
+                  <Icon
+                    icon="mdi:book-open-variant-outline"
+                    class="ml-2 text-lg group-hover:hidden"
+                  />
+                  <Icon
+                    icon="mdi:book-open-outline"
+
+                    class="ml-2 hidden text-lg group-hover:inline"
+                  />
                 </Button>
               </a>
             </div>
             <div class="grid grid-cols-1 mt-10 gap-6 sm:grid-cols-2">
               <div v-for="item in features" :key="item.title" class="flex items-start">
                 <div class="flex-shrink-0">
-                  <div class="rounded-box h-12 w-12 flex items-center justify-center bg-blue-500 text-white">
+                  <div class="rounded-box h-12 w-12 flex items-center justify-center rounded-md bg-blue-500 text-white">
                     <Icon :icon="item.icon" class="text-lg" />
                   </div>
                 </div>
@@ -75,7 +95,7 @@ const features = [
             </div>
           </div>
           <div class="mt-10 lg:mt-0 lg:w-5/12">
-            <div class="rounded-box bg-base-100 overflow-hidden shadow-xl">
+            <div class="bg-base-100 overflow-hidden rounded-md shadow-xl">
               <div class="bg-blue-500 px-6 py-4">
                 <h3 class="text-lg text-white font-medium">
                   关于我们
@@ -153,6 +173,10 @@ const features = [
   background-color: hsl(var(--background));
 }
 
+.starting::after {
+  content: '...';
+  animation: dots 1.5s steps(4, end) infinite;
+}
 .bounce-animation {
   animation: bounce 2s infinite;
   will-change: transform;

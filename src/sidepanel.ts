@@ -15,7 +15,7 @@ declare namespace chrome {
 }
 
 const isInExtension = typeof chrome !== `undefined` && chrome.runtime && chrome.runtime.id
-console.log(`Running in extension context?`, isInExtension)
+// console.log(`Running in extension context?`, isInExtension)
 
 async function getCurrentTab() {
   const queryOptions = { active: true, lastFocusedWindow: true }

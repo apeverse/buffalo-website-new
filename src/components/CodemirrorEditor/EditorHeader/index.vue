@@ -196,7 +196,7 @@ function copy() {
       </Button>
 
       <!-- 复制按钮组 -->
-      <div class="space-x-1 bg-background text-background-foreground mx-2 flex items-center border rounded-md">
+      <div class="bg-background space-x-1 text-background-foreground mx-2 flex items-center border rounded-md">
         <Button variant="ghost" size="icon" @click="copy">
           <Copy class="size-4" />
         </Button>
@@ -228,7 +228,7 @@ function copy() {
       </div>
 
       <!-- 文章信息（移动端隐藏） -->
-      <PostInfo class="hidden sm:inline-flex" />
+      <!-- <PostInfo class="hidden sm:inline-flex" /> -->
 
       <!-- 设置按钮 -->
       <Button variant="outline" size="icon" @click="store.isOpenRightSlider = !store.isOpenRightSlider">
