@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import buffaloLogo from '@/assets/images/buffalo-logo.png'
 import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router'
 
@@ -106,7 +107,7 @@ onBeforeUnmount(() => {
                   <div class="flex-shrink-0">
                     <div class="relative h-24 w-24 flex items-center justify-center overflow-hidden border-4 border-blue-100 rounded-full bg-gray-200">
                       <img
-                        src="/assets/images/buffalo-logo.png"
+                        :src="buffaloLogo"
                         alt="Buffalo"
                         class="object-cover h-full w-full"
                         loading="lazy"

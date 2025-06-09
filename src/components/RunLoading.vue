@@ -41,7 +41,7 @@ onMounted(() => {
     height: 80px;
     border-radius: 100%;
     background-color: transparent;
-    background-image: url('/assets/images/buffalo-logo.png');
+    background-image: url('@/assets/images/buffalo-logo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
