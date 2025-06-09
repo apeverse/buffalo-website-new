@@ -68,7 +68,7 @@ function goToArticle(slug: string) {
   <div class="bg-background h-full w-72 overflow-y-auto">
     <div class="px-8 pb-4 pt-9">
       <h2 class="mb-6 text-2xl font-bold">
-        文章分类
+        资源分类
       </h2>
       <div class="space-y-4">
         <div v-for="category in categories" :key="category.id" class="space-y-2">

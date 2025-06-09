@@ -2,7 +2,27 @@
   "categories": [
     {
       "id": 1,
-      "name": "区块链技术",
+      "name": "图文工具",
+      "children": [
+        {
+          "id": 11,
+          "name": "Markdown 微信编辑",
+          "articles": [
+            { "id": 1, "title": "Markdown文本编辑，转换成微信工众号格式", "slug": "blockchain-basics" }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "Markdown 思维导图",
+          "articles": [
+            { "id": 3, "title": "Markdown文本编辑，转换成思维导图", "slug": "solidity-guide" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Blockchain 技术",
       "children": [
         {
           "id": 11,
@@ -23,7 +43,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "AI 技术",
       "children": [
         {
@@ -45,7 +65,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "编程语言",
       "children": [
         {
@@ -78,7 +98,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "发明创新",
       "children": [
         {
@@ -111,7 +131,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "密码学应用",
       "children": [
         {
