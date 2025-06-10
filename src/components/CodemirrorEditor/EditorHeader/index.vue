@@ -10,7 +10,7 @@ import {
 import { useStore } from '@/stores'
 import { addPrefix, processClipboardContent } from '@/utils'
 import { copyPlain } from '@/utils/clipboard'
-import { ChevronDownIcon, Copy, Moon, PanelLeftClose, PanelLeftOpen, Settings, Sun } from 'lucide-vue-next'
+import { ChevronDownIcon, Copy, Monitor, Moon, PanelLeftClose, PanelLeftOpen, Settings, Smartphone, Sun } from 'lucide-vue-next'
 
 const emit = defineEmits([`addFormat`, `formatContent`, `startCopy`, `endCopy`])
 
@@ -64,9 +64,9 @@ const formatItems = [
 
 const store = useStore()
 
-const { isDark, isCiteStatus, isCountStatus, output, primaryColor, isOpenPostSlider, editor } = storeToRefs(store)
+const { isDark, isCiteStatus, isCountStatus, output, primaryColor, isOpenPostSlider, editor, previewWidth } = storeToRefs(store)
 
-const { toggleDark, editorRefresh, citeStatusChanged, countStatusChanged } = store
+const { toggleDark, editorRefresh, citeStatusChanged, countStatusChanged, previewWidthChanged } = store
 
 const copyMode = useStorage(addPrefix(`copyMode`), `txt`)
 const source = ref(``)
@@ -189,14 +189,8 @@ function copy() {
         <PanelLeftClose v-show="isOpenPostSlider" class="size-4" />
       </Button>
 
-      <!-- 暗色切换 -->
-      <Button variant="outline" size="icon" @click="toggleDark()">
-        <Moon v-show="isDark" class="size-4" />
-        <Sun v-show="!isDark" class="size-4" />
-      </Button>
-
       <!-- 复制按钮组 -->
-      <div class="bg-background space-x-1 text-background-foreground mx-2 flex items-center border rounded-md">
+      <div class="space-x-1 bg-background text-background-foreground mx-2 flex items-center border rounded-md">
         <Button variant="ghost" size="icon" @click="copy">
           <Copy class="size-4" />
         </Button>
@@ -229,6 +223,34 @@ function copy() {
 
       <!-- 文章信息（移动端隐藏） -->
       <!-- <PostInfo class="hidden sm:inline-flex" /> -->
+
+      <!-- 暗色切换 -->
+      <Button variant="outline" size="icon" @click="toggleDark()">
+        <Moon v-show="isDark" class="size-4" />
+        <Sun v-show="!isDark" class="size-4" />
+      </Button>
+
+      <!-- 预览模式切换 -->
+      <DropdownMenu>
+        <DropdownMenuTrigger as-child>
+          <Button variant="outline" size="icon">
+            <Smartphone v-show="previewWidth === 'w-[375px]'" class="size-4" />
+            <Monitor v-show="previewWidth === 'w-full'" class="size-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" :align-offset="-5" class="w-[200px]">
+          <DropdownMenuRadioGroup v-model="previewWidth" @update:model-value="previewWidthChanged">
+            <DropdownMenuRadioItem value="w-[375px]">
+              <Smartphone class="mr-2 size-4" />
+              移动端
+            </DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="w-full">
+              <Monitor class="mr-2 size-4" />
+              电脑端
+            </DropdownMenuRadioItem>
+          </DropdownMenuRadioGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
       <!-- 设置按钮 -->
       <Button variant="outline" size="icon" @click="store.isOpenRightSlider = !store.isOpenRightSlider">
