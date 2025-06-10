@@ -58,7 +58,7 @@ onBeforeUnmount(() => {
                 进阶之路
               </span>
             </h1>
-            <span class="typewriter text-xl italic" />
+            <span class="typewriter text-base italic sm:text-xl sm:after:pr-1" />
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button size="lg" class="min-w-9.6rem text-base" @click="goToEditor">
@@ -214,7 +214,6 @@ onBeforeUnmount(() => {
 .typewriter::after {
   content: '从基础到高级，掌握（前沿技术开发）核心技能';
   margin-top: 1.25rem;
-  padding-right: 0.25rem;
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
