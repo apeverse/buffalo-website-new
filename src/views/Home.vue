@@ -43,16 +43,28 @@ onBeforeUnmount(() => {
 <template>
   <div id="home-page" class="bg-background">
     <!-- 上部分：欢迎区域 -->
-    <section class="section bg-gray-50 pt-24 dark:bg-[unset]">
+    <section class="section bg-gray-50 pt-12 dark:bg-[unset] sm:pt-24">
       <div class="mx-auto max-w-full px-4 py-12 md:max-w-7xl lg:px-8 sm:px-6">
         <div class="lg:flex lg:items-center lg:justify-between">
           <div class="lg:w-1/2">
-            <h1 class="text-4xl font-extrabold lg:text-5xl sm:text-4xl sm:tracking-tight">
-              区块链与AI技术<span class="text-blue-600 italic">进阶之路</span>
+            <h1
+              class="animate-fade-in text-4xl font-extrabold leading-tight lg:text-5xl sm:text-4xl sm:tracking-tight"
+            >
+              区块链与AI技术
+              <br class="block sm:hidden">
+              <span
+                class="from-blue-500 via-purple-500 to-pink-500 animate-gradient bg-clip-text bg-gradient-to-r pr-1 text-transparent italic"
+              >
+                进阶之路
+              </span>
             </h1>
-            <p class="text-base-content/60 mt-5 text-xl">
-              从基础到高级，掌握（前沿技术开发）核心技能
-            </p>
+
+            <!-- <p class="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-black text-xl font-medium">
+
+            </p> -->
+
+            <span class="typewriter text-xl italic" />
+
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button size="lg" class="min-w-9.6rem text-base" @click="goToEditor">
                 <span v-if="isStarting" class="starting">启动中</span>
@@ -84,10 +96,10 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="ml-4">
-                  <h3 class="text-base-content/80 text-lg font-medium">
+                  <h3 class="text-lg font-medium">
                     {{ item.title }}
                   </h3>
-                  <p class="text-base-content/60 mt-2">
+                  <p class="mt-2">
                     {{ item.description }}
                   </p>
                 </div>
@@ -95,7 +107,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
           <div class="mt-10 lg:mt-0 lg:w-5/12">
-            <div class="bg-base-100 overflow-hidden rounded-md shadow-xl">
+            <div class="overflow-hidden rounded-md shadow-xl">
               <div class="bg-blue-500 px-6 py-4">
                 <h3 class="text-lg text-white font-medium">
                   关于我们
@@ -130,17 +142,17 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="mt-6">
-                  <p class="text-base-content/60 leading-relaxed">
+                  <p class="leading-relaxed">
                     水牛加密空间是一个技术交流社区，致力于分享优质技术资源，包括：开源工具、技术文档、教程，
                     让技术学习变得简单有趣。
                   </p>
                   <div class="mt-5 flex items-center">
                     <Icon icon="mdi:star-outline" class="text-primary/80 mr-2" />
-                    <span class="text-base-content/60">专注技术，热爱分享</span>
+                    <span>专注技术，热爱分享</span>
                   </div>
                   <div class="mt-2 flex items-center">
                     <Icon icon="mdi:heart-outline" class="text-primary/80 mr-2" />
-                    <span class="text-base-content/60">开源协作，共同进步</span>
+                    <span>开源协作，共同进步</span>
                   </div>
                 </div>
               </div>
@@ -177,6 +189,61 @@ onBeforeUnmount(() => {
   content: '...';
   animation: dots 1.5s steps(4, end) infinite;
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out both;
+}
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-x 2s ease infinite;
+}
+.typewriter::after {
+  content: '从基础到高级，掌握（前沿技术开发）核心技能';
+  margin-top: 1.25rem;
+  padding-right: 0.25rem;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #dedede;
+  animation:
+    typing 5s steps(35, end),
+    blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 35ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
 .bounce-animation {
   animation: bounce 2s infinite;
   will-change: transform;
