@@ -3,10 +3,11 @@ import { useCommonStore } from '@/stores/common'
 // import { loadMathJax, renderMathJax } from '@/utils/mathjax'
 import { renderArticle, type title } from '@/utils/renderArticle'
 import { List } from 'lucide-vue-next'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const store = useCommonStore()
 const route = useRoute()
+const router = useRouter()
 const output = ref(``)
 const titles = ref<title[]>([])
 const readingTime = ref()
@@ -16,9 +17,13 @@ const isOpenHeadingSlider = ref(false)
 async function loadArticleContent() {
   if (route.path !== `/article`)
     return
-  const articleId = route.query.id as string
-  if (!articleId)
-    return
+  let articleId = route.query.id as string
+  if (!articleId) {
+    const id = `editor-advanced-features`
+    // 默认文章
+    articleId = id
+    router.replace(`?id=${id}`)
+  }
 
   try {
     const response = await fetch(`/articles/${articleId}.md`)
@@ -32,15 +37,6 @@ async function loadArticleContent() {
     output.value = result.output
     titles.value = result.titles
     readingTime.value = result.readingTime
-
-    // 加载并渲染 MathJax
-    // await loadMathJax()
-    // nextTick(() => {
-    //   const outputElement = document.getElementById(`output`)
-    //   if (outputElement) {
-    //     renderMathJax(outputElement)
-    //   }
-    // })
   }
   catch (error) {
     console.error(`加载文章失败:`, error)

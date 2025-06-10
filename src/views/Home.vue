@@ -68,7 +68,7 @@ onBeforeUnmount(() => {
                   <Icon icon="mdi:arrow-right" class="ml-2" />
                 </span>
               </Button>
-              <a href="#articles" class="group text-primary">
+              <a href="#articles" class="text-primary group">
                 <Button variant="outline" size="lg" class="w-full text-base sm:w-auto">
                   文章列表
                   <Icon
@@ -138,8 +138,7 @@ onBeforeUnmount(() => {
                 </div>
                 <div class="mt-6">
                   <p class="leading-relaxed">
-                    水牛加密空间是一个技术交流社区，致力于分享优质技术资源，包括：开源工具、技术文档、教程，
-                    让技术学习变得简单有趣。
+                    水牛加密空间是一个技术交流社区，致力于分享优质技术资源，包括：开源工具、技术文档、教程，让技术学习变得简单有趣。
                   </p>
                   <div class="mt-5 flex items-center">
                     <Icon icon="mdi:star-outline" class="text-primary/80 mr-2" />
@@ -164,9 +163,9 @@ onBeforeUnmount(() => {
 
     <!-- 下部分：文章列表 -->
     <section id="articles" class="mx-auto flex justify-center px-4 py-6 md:py-8">
-      <div class="max-w-7xl w-full flex">
-        <CategoryOutline class="hidden md:block" />
-        <div class="flex-1 pl-8">
+      <div class="max-w-7xl w-full sm:flex">
+        <CategoryOutline />
+        <div class="flex-1">
           <ArticleList />
         </div>
       </div>

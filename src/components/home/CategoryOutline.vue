@@ -65,7 +65,7 @@ function goToArticle(slug: string) {
 </script>
 
 <template>
-  <div class="bg-background h-full w-72 overflow-y-auto">
+  <div class="bg-background w-72 overflow-y-auto sm:h-full">
     <div class="px-8 pb-4 pt-9">
       <h2 class="mb-6 text-2xl font-bold">
         资源分类
