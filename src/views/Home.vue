@@ -58,11 +58,6 @@ onBeforeUnmount(() => {
                 进阶之路
               </span>
             </h1>
-
-            <!-- <p class="animate-typing overflow-hidden whitespace-nowrap border-r-2 border-black text-xl font-medium">
-
-            </p> -->
-
             <span class="typewriter text-xl italic" />
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
