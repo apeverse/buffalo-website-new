@@ -40,6 +40,7 @@ body,
 }
 .main-content {
   flex: 1 0 auto;
+  min-height: 100vh;
 }
 // 抵消下拉菜单开启时带来的样式
 body {
